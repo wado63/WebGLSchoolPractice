@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
   light.position.set(1, 1, 1);
   scene.add(light);
 
-  const tick = (): void => {
+  const tick = () => {
     requestAnimationFrame(tick);
 
     box.rotation.x += 0.05;
