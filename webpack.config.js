@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const fs = require("fs");
+const path = require("path");
 
 const dir = "./src/works";
 const fileNameList = fs.readdirSync(dir);
@@ -40,10 +41,13 @@ module.exports = {
   },
   // import 文で .ts ファイルを解決するため
   resolve: {
+    alias: {
+      "~": `${__dirname}/src`, // rootPath にはルートのパスが入る。
+    },
     extensions: [".ts", ".js"],
   },
   // dev-serverのlive reloadが効かないため明示的にwebを指定する
-  target: "web",
+  target: ["web", "es5"],
   // webpack-dev-serverを立ち上げた時のドキュメントルートを設定
   // ここではdistディレクトリのindex.htmlにアクセスするよう設定してます
   devServer: {

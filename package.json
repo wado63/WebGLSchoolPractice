@@ -24,6 +24,7 @@
     "@typescript-eslint/parser": "^4.11.1",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
+    "eslint-import-resolver-webpack": "^0.13.0",
     "html-webpack-plugin": "^4.5.0",
     "prettier": "^2.2.1",
     "ts-loader": "^8.0.13",

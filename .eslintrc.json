@@ -17,6 +17,11 @@
     "node": true,
     "es6": true
   },
+  "settings": {
+    "import/resolver": {
+      "webpack": { "config": "./webpack.config.js" }
+    }
+  },
   "rules": {
     // 適当なルール
   }
