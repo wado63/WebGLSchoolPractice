@@ -1,11 +1,5 @@
 import * as THREE from "three";
 
-/**
- * BasicView は、Three.js のプロジェクトを簡単にセットアップすることができるクラスです。
- * シーン、カメラ、レンダラー、ビューポートのシンプルなテンプレートを提供しています。
- * @author Yausunobu Ikeda a.k.a @clockmaker
- * @class demo.BasicView
- */
 export class BasicView {
   /** シーンオブジェクトです。 */
   public scene: THREE.Scene;
@@ -22,14 +16,15 @@ export class BasicView {
     const defaultArgs = {
       // カメラに関するパラメータ
       camera: {
-        fovy: 60,
-        aspect: window.innerWidth / window.innerHeight,
-        near: 0.1,
-        far: 10.0,
+        fovy: 60, // Field of View 縦方向の視野角
+        aspect: window.innerWidth / window.innerHeight, // 撮影する空間の縦横比
+        near: 0.1, // カメラが映す範囲の前面
+        far: 10.0, // カメラが映す範囲の後面
         x: 0.0,
         y: 2.0,
         z: 5,
-        lookAt: new THREE.Vector3(0.0, 0.0, 0.0),
+        // カメラの注視点
+        lookAt: new THREE.Vector3(0.0, 0.0, 0.0), // OrbitControlsを使うと注視点を原点に設定してしまう
       },
       // レンダラに関するパラメータ  0xは16進数を示すリテラル
       renderer: {
@@ -66,8 +61,8 @@ export class BasicView {
     this.renderer.setSize(param.renderer.width, param.renderer.height);
     this.containerElement.appendChild(this.renderer.domElement);
 
-    window.addEventListener("resize", (e) => {
-      this.handleResize(e);
+    window.addEventListener("resize", () => {
+      this.handleResize();
     });
     window.addEventListener(
       "keydown",
@@ -106,7 +101,7 @@ export class BasicView {
    * ウインドウリサイズ時のイベントハンドラーです。
    * @param event
    */
-  protected handleResize(event: UIEvent): void {
+  protected handleResize(): void {
     this.camera.aspect = window.innerWidth / window.innerHeight;
     this.camera.updateProjectionMatrix();
 

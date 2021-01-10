@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
-    "start:dev": "webpack serve"
+    "start:dev": "webpack serve",
+    "hygen": "hygen init self"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "eslint-config-prettier": "^7.1.0",
     "eslint-import-resolver-webpack": "^0.13.0",
     "html-webpack-plugin": "^4.5.0",
+    "hygen": "^6.0.4",
     "prettier": "^2.2.1",
     "ts-loader": "^8.0.13",
     "typescript": "^4.1.3",

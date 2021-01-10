@@ -47,7 +47,7 @@ module.exports = {
     extensions: [".ts", ".js"],
   },
   // dev-serverのlive reloadが効かないため明示的にwebを指定する
-  target: ["web", "es5"],
+  target: "web",
   // webpack-dev-serverを立ち上げた時のドキュメントルートを設定
   // ここではdistディレクトリのindex.htmlにアクセスするよう設定してます
   devServer: {

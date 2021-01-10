@@ -1,5 +1,5 @@
-// 1-4 ======================================================================
-// Object3Dのプロパティを使った回転
+// 1-6 ======================================================================
+//  環境光の追加
 // ============================================================================
 
 import * as THREE from "three";
@@ -9,6 +9,21 @@ import { BasicView } from "~/modules/BaseView";
 // マテリアルに関するパラメータ
 const MATERIAL_PARAM = {
   color: 0xff0000, // マテリアルの持つ色
+};
+
+// ライトに関するパラメータの定義
+const DIRECTIONAL_LIGHT_PARAM = {
+  color: 0xffffff, // 光の色
+  intensity: 1.0, // 光の強度
+  x: 1.0, // 光の向きを表すベクトルの X 要素
+  y: 1.0, // 光の向きを表すベクトルの Y 要素
+  z: 1.0, // 光の向きを表すベクトルの Z 要素
+};
+
+// アンビエントライトに関するパラメータの定義
+const AMBIENT_LIGHT_PARAM = {
+  color: 0xffffff, // 光の色
+  intensity: 0.4, // 光の強度
 };
 
 class OrbitView extends BasicView {
@@ -41,11 +56,27 @@ window.addEventListener(
   "DOMContentLoaded",
   () => {
     const basicView = new OrbitView();
-    const geometry = new THREE.BoxGeometry(1.0, 1.0, 1.0);
-    const material = new THREE.MeshBasicMaterial(MATERIAL_PARAM);
-    const box = new THREE.Mesh(geometry, material);
 
+    const geometry = new THREE.BoxGeometry(1.0, 1.0, 1.0);
+    const material = new THREE.MeshLambertMaterial(MATERIAL_PARAM);
+    const box = new THREE.Mesh(geometry, material);
     basicView.scene.add(box);
+
+    const directionalLight = new THREE.DirectionalLight(
+      DIRECTIONAL_LIGHT_PARAM.color,
+      DIRECTIONAL_LIGHT_PARAM.intensity
+    );
+    directionalLight.position.x = DIRECTIONAL_LIGHT_PARAM.x;
+    directionalLight.position.y = DIRECTIONAL_LIGHT_PARAM.y;
+    directionalLight.position.z = DIRECTIONAL_LIGHT_PARAM.z;
+    basicView.scene.add(directionalLight);
+
+    // アンビエントライト @@@
+    const ambientLight = new THREE.AmbientLight(
+      AMBIENT_LIGHT_PARAM.color,
+      AMBIENT_LIGHT_PARAM.intensity
+    );
+    basicView.scene.add(ambientLight);
 
     basicView.onTick = () => {
       if (basicView.isDown) {
