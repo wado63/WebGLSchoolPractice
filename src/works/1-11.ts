@@ -3,6 +3,7 @@
 // ============================================================================
 
 import * as THREE from "three";
+import { gsap } from "gsap";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { BasicView } from "~/modules/BaseView";
 
@@ -29,6 +30,7 @@ const AMBIENT_LIGHT_PARAM = {
 
 class OrbitView extends BasicView {
   public isDown = false;
+  public isReverse = false;
   constructor() {
     super();
     const axesHelper = new THREE.AxesHelper(5.0);
@@ -47,6 +49,7 @@ class OrbitView extends BasicView {
       "keyup",
       () => {
         this.isDown = false;
+        this.isReverse = true;
       },
       false
     );
@@ -110,6 +113,16 @@ window.addEventListener(
           box.rotation.y += 0.05;
           box.rotation.z += 0.05;
         });
+      } else if (basicView.isReverse) {
+        gsap.to(
+          boxes.map((box) => box.rotation), //配列でオブジェクトを指定できる
+          {
+            duration: 0.5,
+            y: 0,
+            z: 0,
+          }
+        );
+        basicView.isReverse = false;
       }
     };
     basicView.render();
