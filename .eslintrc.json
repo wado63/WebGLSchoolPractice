@@ -24,5 +24,12 @@
   },
   "rules": {
     // 適当なルール
+    "@typescript-eslint/no-floating-promises": [
+      "error",
+      {
+        "ignoreVoid": true,
+        "ignoreIIFE": true
+      }
+    ]
   }
 }

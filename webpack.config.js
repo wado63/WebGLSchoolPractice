@@ -28,6 +28,7 @@ module.exports = {
     // 出力ファイル名
     filename: "assets/js/[name].js",
     publicPath: "/",
+    assetModuleFilename: "images/[hash][ext]",
   },
   module: {
     rules: [
@@ -36,6 +37,10 @@ module.exports = {
         test: /\.ts$/,
         // TypeScript をコンパイルする
         use: "ts-loader",
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        type: "asset/resource",
       },
     ],
   },
