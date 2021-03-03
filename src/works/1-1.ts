@@ -3,7 +3,7 @@
 // ============================================================================
 
 import * as THREE from "three";
-import { BasicView } from "~/modules/BaseView";
+import { BasicView } from "~/modules/BaseView-day1";
 
 // マテリアルに関するパラメータ
 const MATERIAL_PARAM = {

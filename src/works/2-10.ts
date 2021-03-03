@@ -3,7 +3,7 @@
 // ==========================================================================
 import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass";
 import { DotScreenPass } from "three/examples/jsm/postprocessing/DotScreenPass";
-import { BasicView } from "~/modules/BaseView2Ver2";
+import { BasicView } from "~/modules/BaseView-day2v2";
 import textureImage from "~/assets/sample.jpg";
 import {
   BoxGeometry,

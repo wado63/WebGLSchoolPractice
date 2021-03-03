@@ -5,7 +5,7 @@ import * as THREE from "three";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass.js";
-import { BasicView } from "~/modules/BaseView2";
+import { BasicView } from "~/modules/BaseView-day2";
 import textureImage from "~/assets/sample.jpg";
 
 class BasicViewWithComposer extends BasicView {

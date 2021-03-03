@@ -3,7 +3,7 @@
 // ============================================================================
 
 import * as THREE from "three";
-import { BasicView } from "~/modules/BaseView2";
+import { BasicView } from "~/modules/BaseView-day2";
 
 window.addEventListener(
   "DOMContentLoaded",

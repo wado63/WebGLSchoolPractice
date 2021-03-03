@@ -7,7 +7,7 @@ import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass";
 import { DotScreenPass } from "three/examples/jsm/postprocessing/DotScreenPass";
 
-import { BasicView } from "~/modules/BaseView2";
+import { BasicView } from "~/modules/BaseView-day2";
 import textureImage from "~/assets/sample.jpg";
 
 class BasicViewWithComposer extends BasicView {

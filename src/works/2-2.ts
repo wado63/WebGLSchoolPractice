@@ -4,7 +4,7 @@
 
 import * as THREE from "three";
 import { ValuesType } from "utility-types";
-import { BasicView } from "~/modules/BaseView2";
+import { BasicView } from "~/modules/BaseView-day2";
 
 // マテリアルに関するパラメータ
 const MATERIAL_PARAM = {
