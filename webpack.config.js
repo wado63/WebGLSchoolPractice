@@ -21,6 +21,7 @@ module.exports = {
 
   // メインとなるJavaScriptファイル（エントリーポイント）
   entry: entryPoints,
+  devtool: "eval-source-map",
   // ファイルの出力設定
   output: {
     //  出力ファイルのディレクトリ名
@@ -41,6 +42,10 @@ module.exports = {
       {
         test: /\.(png|jpg|gif)$/,
         type: "asset/resource",
+      },
+      {
+        test: /\.(frag|vert)$/,
+        type: "asset/source",
       },
     ],
   },
@@ -64,6 +69,7 @@ module.exports = {
       return new HtmlWebpackPlugin({
         filename: `${key}.html`,
         chunks: [key],
+        template: "./src/template/index.html",
       });
     }),
   ],

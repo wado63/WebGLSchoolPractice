@@ -28,6 +28,11 @@ const html = `
   <p><a href="./3-6.html">3-6: 月を追尾する人工衛星</a></p>
   <p><a href="./3-7.html">3-7: 月を追尾する人工衛星（改）</a></p>
   <p><a href="./3-8.html">3-8: 月を目指すロケット(クォータ二オン) </a></p>
+  <p><a href="./4-1.html">4-1: pureなWebGlによる描画 </a></p>
+  <p><a href="./4-2.html">4-2: 頂点属性、attribute 変数、varying 変数 </a></p>
+  <p><a href="./4-3.html">4-3: uniform 変数でより汎用的に </a></p>
+  <p><a href="./4-4.html">4-4: 三角形から五角形を作ってみよう </a></p>
+  <p><a href="./4-5.html">4-5: インデックスバッファを使った描画 </a></p>
 `;
 
 const ready = () => {
