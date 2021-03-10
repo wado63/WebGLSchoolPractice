@@ -17,16 +17,19 @@ window.addEventListener(
       sizeAttenuation: false, // 遠近感を出すかどうかの真偽値
     });
 
-    const geometry = new THREE.Geometry();
+    const geometry = new THREE.BufferGeometry();
     const SIZE = 10.0; // どの程度の範囲に配置するかのサイズ
     const positions = [...Array(100000).keys()].map(() => {
-      return new THREE.Vector3(
+      return [
         (Math.random() - 0.5) * 2.0 * SIZE,
         (Math.random() - 0.5) * 2.0 * SIZE,
-        (Math.random() - 0.5) * 2.0 * SIZE
-      );
+        (Math.random() - 0.5) * 2.0 * SIZE,
+      ];
     });
-    geometry.vertices = positions;
+
+    const vertices = new Float32Array(positions.flat());
+
+    geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
 
     const particles = new THREE.Points(geometry, material);
     basicView.scene.add(particles);

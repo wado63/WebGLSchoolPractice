@@ -18,16 +18,18 @@ window.addEventListener(
 
     const material = new THREE.PointsMaterial(MATERIAL_PARAM_POINT);
 
-    const geometry = new THREE.Geometry();
+    const geometry = new THREE.BufferGeometry();
 
     const positions = [...Array(10).keys()]
       .map((x) => {
         return [...Array(10).keys()].map((y) => [x, y]);
       })
       .flat()
-      .map(([x, y]) => new THREE.Vector3(0.1 * x, 0.1 * y, 0.0));
+      .map(([x, y]) => [0.1 * x, 0.1 * y, 0.0]);
 
-    geometry.vertices = positions;
+    const vertices = new Float32Array(positions.flat());
+
+    geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
 
     const particles = new THREE.Points(geometry, material);
 

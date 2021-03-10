@@ -23,16 +23,19 @@ const loader = new THREE.TextureLoader();
 const texture = loader.load(starImg);
 material.map = texture;
 
-const geometry = new THREE.Geometry();
+const geometry = new THREE.BufferGeometry();
 const SIZE = 10.0; // どの程度の範囲に配置するかのサイズ
-const positions = [...Array(5000).keys()].map(() => {
-  return new THREE.Vector3(
+const positions = [...Array(100000).keys()].map(() => {
+  return [
     (Math.random() - 0.5) * 2.0 * SIZE,
     (Math.random() - 0.5) * 2.0 * SIZE,
-    (Math.random() - 0.5) * 2.0 * SIZE
-  );
+    (Math.random() - 0.5) * 2.0 * SIZE,
+  ];
 });
-geometry.vertices = positions;
+
+const vertices = new Float32Array(positions.flat());
+
+geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
 
 const particles = new THREE.Points(geometry, material);
 basicView.scene.add(particles);
